@@ -30,9 +30,8 @@ fn get_battery() -> battery::Result<()> {
         }
     };
 
-    let mut wait_time = 1;
-
     loop {
+        let mut wait_time = 1;
         let percentage = battery.state_of_charge().get::<percent>();
         let threshold: f32 = 0.20;
         if percentage <= threshold {
